@@ -10,8 +10,8 @@ class NetworkProvider {
     companion object {
         private var TAG = "Pikachu::" + this.javaClass.simpleName
         lateinit var networkUpdateListener: NetworkMovieUpdateListener
-        private var URL = "http://api.themoviedb.org/3/"
-        private var key = "047e9d268a9694e6ee43d7ced185b917"
+        private const val URL = "http://api.themoviedb.org/3/"
+        private const val key = "047e9d268a9694e6ee43d7ced185b917"
         private var retrofit = Retrofit.Builder()
                                 .baseUrl(URL)
                                 .addConverterFactory(GsonConverterFactory.create())

@@ -32,6 +32,7 @@ class MovieListFragment:Fragment() {
             adapter = movieListAdapter
             layoutManager = movieListLayoutmanager
         }
+        currentPage = 1
         return view
     }
 
