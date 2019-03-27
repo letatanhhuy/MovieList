@@ -1,4 +1,4 @@
-package com.example.movielist.Fragment
+package com.example.movielist.UI.Fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -38,7 +38,6 @@ class MovieListFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val networkUpdateListener:NetworkProvider.NetworkMovieUpdateListener = object : NetworkProvider.NetworkMovieUpdateListener {
             override fun getTopRatedMoviesFailed() {
                 Toast.makeText(context, " UPDATE FAILED", Toast.LENGTH_LONG)
@@ -58,8 +57,10 @@ class MovieListFragment:Fragment() {
                 isEndPage = false
             }
         }
+
         NetworkProvider.networkUpdateListener = networkUpdateListener
         NetworkProvider.getTopRatedMovies(currentPage)
+
         movieListRecyclerView.addOnScrollListener (
             object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

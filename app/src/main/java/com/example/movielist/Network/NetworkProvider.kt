@@ -35,6 +35,24 @@ class NetworkProvider {
 
             return NetworkRespond(ArrayList())
         }
+        fun getTopRatedMovies(api_key:String = key):ArrayList<Movie> {
+            var getTopRatedCall = networkService.getTopRatedMovie(api_key, 0)
+            var movieList = ArrayList<Movie>()
+            getTopRatedCall.enqueue(
+                object : Callback<NetworkRespond> {
+                    override fun onResponse(call: Call<NetworkRespond>, response: Response<NetworkRespond>) {
+                        Log.d(TAG, "onResponse Test:{${response.body()?.result?.size}}")
+                        movieList = response.body()?.result as ArrayList<Movie>
+                        networkUpdateListener.getMoreTopRatedMoviesSuccess(movieList)
+                    }
+                    override fun onFailure(call: Call<NetworkRespond>, t: Throwable) {
+                        Log.d(TAG, "onFailure est:{${t.message}")
+                        networkUpdateListener.getTopRatedMoviesFailed()
+                    }
+                }
+            )
+            return movieList
+        }
     }
 
     interface NetworkMovieUpdateListener {

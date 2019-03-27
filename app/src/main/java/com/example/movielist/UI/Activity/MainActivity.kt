@@ -1,12 +1,11 @@
-package com.example.movielist.Activity
+package com.example.movielist.UI.Activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.movielist.Fragment.MovieListFragment
+import com.example.movielist.UI.Fragment.MovieListFragment
 import com.example.movielist.R
 import android.support.v4.app.Fragment
 import android.util.Log
-import com.example.movielist.Adapter.MovieListAdapter
 
 
 class MainActivity : AppCompatActivity() {

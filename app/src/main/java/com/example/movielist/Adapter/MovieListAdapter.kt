@@ -10,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.movielist.Entity.Movie
 import kotlinx.android.synthetic.main.movie_row_view.view.*
-import com.example.movielist.Activity.MainActivity
-import com.example.movielist.Fragment.MovieDetailsFragment
+import com.example.movielist.UI.Activity.MainActivity
+import com.example.movielist.UI.Fragment.MovieDetailsFragment
 import com.example.movielist.R
 
 
